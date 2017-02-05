@@ -1,2 +1,2 @@
-# akelius-scrapper
-Web scrapper for the Akelius apartment listing
+# akelius-scraper
+Web scraper for the Akelius apartment listing

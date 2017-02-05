@@ -1,0 +1,30 @@
+{
+  "name": "akelius-scraper",
+  "version": "1.0.0",
+  "description": "scraper for the Akelius apartment listing",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fedebertolini/akelius-scraper.git"
+  },
+  "keywords": [
+    "scraper",
+    "akelius"
+  ],
+  "author": "Federico Bertolini",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fedebertolini/akelius-scraper/issues"
+  },
+  "homepage": "https://github.com/fedebertolini/akelius-scraper#readme",
+  "dependencies": {
+    "cheerio": "^0.22.0",
+    "request": "^2.79.0"
+  },
+  "devDependencies": {
+    "jest": "^18.1.0"
+  }
+}
