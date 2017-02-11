@@ -39,5 +39,4 @@ const scrapCity = city => new Promise((resolve, reject) => {
 });
 
 exports.cities = Object.keys(cityPaths);
-exports.scrapApartment = scrapApartment;
 exports.scrapCity = scrapCity;
