@@ -4,9 +4,11 @@ const scrapApartment = ($apartmentNode) => {
     const apartment = {};
 
     const title = $apartmentNode.find('h3').html().split('<br>');
-    apartment.street = title[0].trim();
-    apartment.name = apartment.street;
-    apartment.postalCode = title[1].trim();
+    apartment.address = title[0].trim();
+
+    const titleSecondRow = title[1].trim().split(' ');
+    apartment.postalCode = titleSecondRow[0];
+    apartment.city = titleSecondRow[1];
 
     apartment.url = $apartmentNode.find('a').attr('href');
 

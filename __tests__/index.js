@@ -16,6 +16,9 @@ it('scraps the Berlin apartment list and its apartments', () => {
         expect(apartments.length).toBeGreaterThan(20);
 
         apartments.forEach((apartment) => {
+            expect(apartment.address).toBeTruthy();
+            expect(apartment.postalCode.length).toBe(5);
+            expect(apartment.city).toBeTruthy();
             expect(apartment.description).toBeTruthy();
             expect(apartment.area).toBeGreaterThan(10);
             expect(apartment.rentTotal).toBeGreaterThan(100);
