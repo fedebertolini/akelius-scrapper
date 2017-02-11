@@ -1,0 +1,10 @@
+{
+    "Berlin": "osten/berlin",
+    "Hamburg": "norden/hamburg",
+    "Düsseldorf": "westen/dusseldorf",
+    "Köln": "westen/koln",
+    "Wiesbaden": "sud-westen/wiesbaden",
+    "Frankfurt": "sud-westen/frankfurt",
+    "Mainz": "sud-westen/mainz",
+    "München": "suden/munchen"
+}

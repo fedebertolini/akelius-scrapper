@@ -1,19 +1,10 @@
 const request = require('request');
 const listScraper = require('./scrapers/list');
 const apartmentScraper = require('./scrapers/apartment');
+const cityPaths = require('./cityPaths.json');
 
 const host = 'https://www.akelius.de';
 const basePathname = '/en/search/apartments/';
-const cityPaths = {
-    'Berlin': 'osten/berlin',
-    'Hamburg': 'norden/hamburg',
-    'Düsseldorf': 'westen/dusseldorf',
-    'Köln': 'westen/koln',
-    'Wiesbaden': 'sud-westen/wiesbaden',
-    'Frankfurt': 'sud-westen/frankfurt',
-    'Mainz': 'sud-westen/mainz',
-    'München': 'suden/munchen',
-};
 
 const scrapApartment = (url) => {
     return new Promise((resolve, reject) => {
