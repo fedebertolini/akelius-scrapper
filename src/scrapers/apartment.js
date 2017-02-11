@@ -20,6 +20,11 @@ const parseAvailableFrom = (text) => {
     return null;
 };
 
+const parseNumber = (text) => {
+    const numberRegex = /(\d+)/.exec(text);
+    return numberRegex ? parseInt(numberRegex[1], 10) : null;
+};
+
 const parseApartmentSection = (section) => {
     const result = {};
     const rows = section.find('div.text-row');
@@ -29,6 +34,8 @@ const parseApartmentSection = (section) => {
             result.rentBase = parsePrice(text);
         } else if (text.includes('Additional costs')) {
             result.rentAdditionalCosts = parsePrice(text);
+        } else if (text.includes('Rooms')) {
+            result.rooms = parseNumber(text);
         }
     }
     return result;
@@ -62,6 +69,7 @@ const scrap = (page) => {
             const parsedSection = parseApartmentSection($(elem).parent());
             result.rentBase = parsedSection.rentBase;
             result.rentAdditionalCosts = parsedSection.rentAdditionalCosts;
+            result.rooms = parsedSection.rooms;
 
             return false; // break the each loop
         }

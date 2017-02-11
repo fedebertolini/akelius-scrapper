@@ -45,5 +45,3 @@ const scrapCity = city => new Promise((resolve, reject) => {
 
 exports.cities = Object.keys(cityPaths);
 exports.scrapCity = scrapCity;
-
-scrapCity('Düsseldorf').then(apartments => console.log(apartments.slice(0,3)))

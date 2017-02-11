@@ -26,4 +26,5 @@ it('scraps the apartment2 page', () => {
     expect(apartment.rentTotal).toBe(1350);
     expect(apartment.rentBase).toBe(1150);
     expect(apartment.rentAdditionalCosts).toBe(200);
+    expect(apartment.rooms).toBe(2);
 });
