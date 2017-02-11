@@ -7,7 +7,7 @@ it('scraps the Berlin apartment list', () => {
 
     expect(apartments.length).toBe(85);
 
-    apartments.forEach(apartment => {
+    apartments.forEach((apartment) => {
         expect(apartment.url.length).toBeGreaterThan(40);
         expect(apartment.name.length).toBeGreaterThan(3);
         expect(apartment.postalCode.length).toBe(12); // DDDDD Berlin

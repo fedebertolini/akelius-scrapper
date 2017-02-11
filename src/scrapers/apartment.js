@@ -1,47 +1,7 @@
 const cheerio = require('cheerio');
 
-exports.scrap = (page) => {
-    const $ = cheerio.load(page, {
-        decodeEntities: false,
-        normalizeWhitespace: true,
-    });
-
-    const result = {};
-
-    result.description = $('h2').text();
-
-    $('section > p').each((index, elem) => {
-        const text = $(elem).text();
-
-        if (text.includes('㎡')) {
-            result.area = parseArea(text);
-        } else if (text.includes('Total rent')) {
-            result.rentTotal = parsePrice(text);
-        } else if (text.includes('Available from')) {
-            result.availableFrom = parseAvailableFrom(text);
-        }
-    });
-
-    $('h3').each((index, elem) => {
-        const text = $(elem).text();
-        if (text === 'Apartment') {
-            const parsedSection = parseApartmentSection($(elem).parent());
-            result.rentBase = parsedSection.rentBase;
-            result.rentAdditionalCosts = parsedSection.rentAdditionalCosts;
-
-            return false;
-        }
-    });
-
-    if (!result.rentTotal) {
-        result.rentTotal = result.rentBase + result.rentAdditionalCosts;
-    }
-
-    return result;
-};
-
 const parseArea = (text) => {
-    const areaRegex = /(\d*.\d*)\ ㎡/.exec(text);
+    const areaRegex = /(\d*.\d*) ㎡/.exec(text);
     return areaRegex ? parseFloat(areaRegex[1].replace(',', '.')) : null;
 };
 
@@ -73,3 +33,46 @@ const parseApartmentSection = (section) => {
     }
     return result;
 };
+
+const scrap = (page) => {
+    const $ = cheerio.load(page, {
+        decodeEntities: false,
+        normalizeWhitespace: true,
+    });
+
+    const result = {};
+
+    result.description = $('h2').text();
+
+    $('section > p').each((index, elem) => {
+        const text = $(elem).text();
+
+        if (text.includes('㎡')) {
+            result.area = parseArea(text);
+        } else if (text.includes('Total rent')) {
+            result.rentTotal = parsePrice(text);
+        } else if (text.includes('Available from')) {
+            result.availableFrom = parseAvailableFrom(text);
+        }
+    });
+
+    $('h3').each((index, elem) => {
+        const text = $(elem).text();
+        if (text === 'Apartment') {
+            const parsedSection = parseApartmentSection($(elem).parent());
+            result.rentBase = parsedSection.rentBase;
+            result.rentAdditionalCosts = parsedSection.rentAdditionalCosts;
+
+            return false; // break the each loop
+        }
+        return true;
+    });
+
+    if (!result.rentTotal) {
+        result.rentTotal = result.rentBase + result.rentAdditionalCosts;
+    }
+
+    return result;
+};
+
+exports.scrap = scrap;

@@ -8,7 +8,10 @@ it('exports the list of available cities', () => {
 });
 
 it('scraps the Berlin apartment list and its apartments', () => {
-    return index.scrapCity('Berlin').then((apartments) => {
+    const promise = index.scrapCity('Berlin');
+    expect(promise instanceof Promise).toBe(true);
+
+    return promise.then((apartments) => {
         expect(Array.isArray(apartments)).toBe(true);
         expect(apartments.length).toBeGreaterThan(20);
 
