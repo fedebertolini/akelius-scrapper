@@ -1,6 +1,6 @@
 {
   "name": "akelius-scraper",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "scraper for the Akelius apartment listing",
   "main": "src/index.js",
   "scripts": {
