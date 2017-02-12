@@ -49,8 +49,7 @@ Output:
     rentTotal:1090,
     area:76.34,
     availableFrom:2017-02-01T00:00:00.000Z,
-    rentBase:900,
-    rentAdditionalCosts:190
+    rentBase:900
   },
   {
     address:'Münsterstraße 44',
@@ -61,8 +60,7 @@ Output:
     rentTotal:890,
     area:55,
     availableFrom:2017-02-16T00:00:00.000Z,
-    rentBase:740,
-    rentAdditionalCosts:150
+    rentBase:740
   },
   {
     address:'Rethelstraße 99',
@@ -73,8 +71,7 @@ Output:
     rentTotal:710,
     area:48.2,
     availableFrom:2017-02-16T00:00:00.000Z,
-    rentBase:620,
-    rentAdditionalCosts:90
+    rentBase:620
   }
 ]
 ```

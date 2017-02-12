@@ -32,8 +32,6 @@ const parseApartmentSection = (section) => {
         const text = rows.eq(i).text();
         if (text.includes('Rent (without heating)')) {
             result.rentBase = parsePrice(text);
-        } else if (text.includes('Additional costs')) {
-            result.rentAdditionalCosts = parsePrice(text);
         } else if (text.includes('Rooms')) {
             result.rooms = parseNumber(text);
         }
@@ -68,17 +66,12 @@ const scrap = (page) => {
         if (text === 'Apartment') {
             const parsedSection = parseApartmentSection($(elem).parent());
             result.rentBase = parsedSection.rentBase;
-            result.rentAdditionalCosts = parsedSection.rentAdditionalCosts;
             result.rooms = parsedSection.rooms;
 
             return false; // break the each loop
         }
         return true;
     });
-
-    if (!result.rentTotal) {
-        result.rentTotal = result.rentBase + result.rentAdditionalCosts;
-    }
 
     return result;
 };

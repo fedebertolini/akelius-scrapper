@@ -12,7 +12,6 @@ it('scraps the apartment1 page', () => {
     expect(apartment.availableFrom).toEqual(new Date('2017-02-16'));
     expect(apartment.rentTotal).toBe(720);
     expect(apartment.rentBase).toBe(650);
-    expect(apartment.rentAdditionalCosts).toBe(70);
 });
 
 it('scraps the apartment2 page', () => {
@@ -25,6 +24,5 @@ it('scraps the apartment2 page', () => {
     expect(apartment.availableFrom).toEqual(new Date('2017-02-01'));
     expect(apartment.rentTotal).toBe(1350);
     expect(apartment.rentBase).toBe(1150);
-    expect(apartment.rentAdditionalCosts).toBe(200);
     expect(apartment.rooms).toBe(2);
 });
