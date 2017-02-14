@@ -11,6 +11,7 @@ const scrapApartment = ($apartmentNode) => {
     apartment.city = titleSecondRow[1];
 
     apartment.url = $apartmentNode.find('a').attr('href');
+    apartment.id = /(\d+\.\d+\.\d+)$/.exec(apartment.url)[1];
 
     return apartment;
 };
