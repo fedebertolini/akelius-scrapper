@@ -26,7 +26,10 @@ const parseNumber = (text) => {
 };
 
 const parseApartmentSection = (section) => {
-    const result = {};
+    const result = {
+        rentBase: null,
+        rooms: null,
+    };
     const rows = section.find('div.text-row');
     for (let i = 0; i < rows.length; i++) {
         const text = rows.eq(i).text();
