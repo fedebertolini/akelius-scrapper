@@ -23,6 +23,7 @@ it('scraps the Berlin apartment list and its apartments', () => {
             expect(apartment.area).toBeGreaterThan(10);
             expect(apartment.rentTotal).toBeGreaterThan(100);
             expect(apartment.rentBase).toBeGreaterThan(100);
+            expect(apartment.images.length).toBeGreaterThan(0);
         });
     });
 });
